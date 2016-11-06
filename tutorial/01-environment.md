@@ -1,4 +1,7 @@
-首先，大家可以参考笑来老师的 [基本开发环境设置][http://xiaolai.li/2016/06/16/makecs-basic-dev-env-settup/]。当然，你不需要安装 rvm 和 Ruby。  
+[工程师的时光穿梭机 —— git]: http://xiaolai.li/2016/07/05/makecs-git-basics/
+[基本开发环境设置]: http://xiaolai.li/2016/06/16/makecs-basic-dev-env-settup/
+
+首先，大家可以参考笑来老师的 [工程师的时光穿梭机 —— git][]，和[基本开发环境设置][]。当然，你不需要安装 rvm 和 Ruby。  
 
 
 ## Node.js & NPM
@@ -24,7 +27,7 @@ node-v6.3.1.pkg
 
 >npm install cnpm -g
 
-又或者，你可以玩一下 [Yarn][https://yarnpkg.com/en/docs/install]
+又或者，你可以玩一下 Yarn：https://yarnpkg.com/en/docs/install
 
 
 ## MongoDB

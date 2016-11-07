@@ -23,7 +23,7 @@ node-v6.3.1.pkg
 
 >npm install npm@latest -g
 
-国内使用 npm 比较慢，可以安装 cnpm。用一下命令：
+国内使用 npm 比较慢，可以安装 cnpm 方便以后使用。输入以下命令：
 
 >npm install cnpm -g
 
@@ -145,3 +145,7 @@ Mac 就按照上面的步骤来就可以了。
 连接服务器命令：  
 
 >redis-cli.exe
+
+### 图形化客户端
+
+Medis: https://github.com/luin/medis

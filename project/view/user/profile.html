@@ -1,0 +1,82 @@
+<div id="user-profile">
+  <input type="hidden" id="user-id" value="<%= typeof(id) !== 'undefined' ? id : '' %>"/>
+
+  <div class="col-md-4 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="adduserthumbnail">
+        Image
+        <span class="pull-right btn btn-xs btn-success fileinput-button">
+          <i class="glyphicon glyphicon-plus"></i>
+          <span>Select...</span>
+          <input id="fileupload" type="file" name="files[]" data-url="/file/upload">
+        </span>
+      </div>
+      <div class="panel-body">
+        <a href="#" class="thumbnail" v-if="imageUrl">
+          <img v-bind:src="imageUrl">
+        </a>
+        <p v-else>N/A</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Profile
+      </div>
+      <div class="panel-body" v-if="<%= isEditable%>">
+        <form id="profileSection">
+          <fieldset>
+            <div class="form-group">
+              <label for="loginId">Login ID</label>
+              <input type="text" autofocus class="form-control required" id="loginId" name="loginId" v-model="loginId">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control required" id="phone" name="phone" v-model="phone">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" name="email" email v-model="email">
+            </div>
+          </fieldset>
+
+          <button class="btn btn-danger">Update</button>
+        </form>
+      </div>
+      <div class="panel-body" v-else>
+      </div>
+    </div>
+    <div class="panel panel-default" v-if="<%= isEditable%>">
+      <div class="panel-heading">
+        Security
+      </div>
+      <div class="panel-body" v-if="<%= isEditable%>">
+        <form id="passwordSection">
+          <div class='form-group'>
+            <div class="input-group">
+              <input class='form-control required' id="password" name="password" v-model='password' size='30' type='password' placeholder="Password"/>
+              <div id="passwordToolTip" class='btn input-group-addon' v-on:click="showPassword">{{passwordHintText}}</div>
+            </div>
+            <label for="password"></label>
+            <div v-if="passwordHint">
+              <span>{{password}}</span>
+            </div>
+          </div>
+
+          <button class="btn btn-danger">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%
+  block('moduleScript').append(
+    Loader('/public/build/userProfile.min.js')
+      .js('/public/js/common/file-uploader.js')
+      .js('/public/js/user/profile.js')
+      .done(assets, config.site_static_host)
+  )
+%>

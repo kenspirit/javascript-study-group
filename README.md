@@ -2,6 +2,14 @@
 
 同时这个 Git 也让参加 JavaScript 学习小组的人提问使用。  
 
+[Tasting JavaScript]:https://leanpub.com/tasting-javascript
+[Evergrow]: https://github.com/kenspirit/generator-evergrow
+
+本学习小组需要的资料和工具：  
+
+1. 我写的书 [Tasting JavaScript][]  
+2. 我写的脚手架 [Evergrow][]
+
 提问题的方式：
 
 点击 Issues 标签：

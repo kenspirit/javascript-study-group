@@ -1,0 +1,9 @@
+<%
+  block('commonStyle').append(
+    Loader('/public/build/common.min.css')
+      .css('/public/js/lib/bootstrap/css/bootstrap.css')
+      .css('/public/css/jquery.fileupload.css')
+      .css('/public/css/common.css')
+      .done(assets, config.site_static_host)
+  )
+%>

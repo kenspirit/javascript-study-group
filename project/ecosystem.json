@@ -1,0 +1,24 @@
+{
+  "apps": [
+    {
+      "name": "project",
+      "script": "index.js",
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "deploy": {
+    "production": {
+      "user": "node",
+      "host": "127.0.0.1",
+      "ref": "origin/master",
+      "repo": "",
+      "path": "~/app/production",
+      "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env production",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}

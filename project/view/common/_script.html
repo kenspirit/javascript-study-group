@@ -1,0 +1,15 @@
+<%
+  block('libScript').append(
+    Loader('/public/build/lib.min.js')
+      .js('/public/js/lib/jquery-2.1.0.js')
+      .js('/public/js/lib/jquery.validate.min.js')
+      .js('/public/js/lib/jquery.ui.widget.js')
+      .js('/public/js/lib/jquery.iframe-transport.js')
+      .js('/public/js/lib/jquery.fileupload.js')
+      .js('/public/js/lib/additional-methods.min.js')
+      .js('/public/js/lib/vue.js')
+      .js('/public/js/lib/bootstrap/js/bootstrap.js')
+      .js('/public/js/lib/moment.min.js')
+      .done(assets, config.site_static_host)
+  )
+%>

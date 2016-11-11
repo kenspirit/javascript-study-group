@@ -1,0 +1,22 @@
+<form id="signin" v-cloak>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="form-group form-group-lg">
+      <input class='form-control required' id='loginid' name='loginid' size='30' type='text' v-model="loginid" placeholder="Login ID/Phone/Email"/>
+    </div>
+    <div class='form-group form-group-lg'>
+      <input class='form-control required' id='password' name='password' size='30' type='password' v-model="password" placeholder="Password"/>
+    </div>
+    <div class="alert alert-danger" role="alert" v-if="errorMsg">{{errorMsg}}</div>
+    <button type="submit" class='btn btn-primary btn-lg btn-block'>Sign In</button>
+  </div>
+  <div class="col-md-4 col-md-offset-4">
+    <a href="/auth/resetPasswordRequest">Forgot password？</a>
+  </div>
+</form>
+<%
+  block('moduleScript').append(
+    Loader('/public/build/signin.min.js')
+      .js('/public/js/auth/signin.js')
+      .done(assets, config.site_static_host)
+  )
+%>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%- partial("common/_head") %>
+</head>
+<body>
+
+<div class="nav-panel">
+  <div class="container">
+    <%- partial("common/_nav") %>
+  </div>
+</div>
+
+<div>
+  <div class="container">
+    <%- body %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="footer-main">
+    <div class="company">
+      evergrow @ kenspirit
+    </div>
+  </div>
+</div>
+<%- partial("common/_style") %>
+<%- partial("common/_script") %>
+<%- block('commonStyle').toString() %>
+<%- block('libScript').toString() %>
+<%- block('commonScript').toString() %>
+<%- block('moduleScript').toString() %>
+</body>
+</html>

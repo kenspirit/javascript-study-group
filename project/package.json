@@ -1,0 +1,44 @@
+{
+  "name": "project",
+  "version": "0.1.0",
+  "description": "Evergrow generated app",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "bluebird": "^3.4.1",
+    "body-parser": "^1.15.2",
+    "bunyan": "^1.8.1",
+    "busboy": "^0.2.13",
+    "cookie-parser": "^1.4.3",
+    "compression": "^1.6.2",
+    "connect-redis": "^3.1.0",
+    "ejs-mate": "^2.3.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "glob": "^7.0.5",
+    "heapdump": "^0.3.7",
+    "ioredis": "^2.2.0",
+    "joi": "^9.0.1",
+    "loader": "2.1.1",
+    "loader-builder": "1.2.1",
+    "lodash": "^4.13.1",
+    "moment": "^2.14.1",
+    "mongoose": "^4.5.4",
+    "node-uuid": "^1.4.7",
+    "nodemailer": "^2.6.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "request-id": "^0.11.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-mocha": "^2.2.0",
+    "jshint": "^2.9.2",
+    "mocha": "^2.5.3"
+  }
+}

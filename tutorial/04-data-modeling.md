@@ -2,7 +2,7 @@
 
 [javascript-study-group]: https://github.com/kenspirit/javascript-study-group
 
-这偏文章是 Node.js 搭建微信后台，实现图片交换功能文章第一篇。前序准备书籍，工具可参考 Github 项目 [javascript-study-group][]。感兴趣者也可加入学习小组。  
+这篇是 Node.js 搭建微信后台，实现图片交换功能教程的第一篇文章。前序准备书籍，工具可参考 Github 项目 [javascript-study-group][]。感兴趣者也可加入学习小组。  
 
 [数据建模]:https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1
 

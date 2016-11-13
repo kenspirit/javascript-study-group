@@ -23,3 +23,12 @@
 最开始填 tutorial 的文件名，空两格再标注 你的操作系统，最后是问题的概述。里面填写问题详细描述，包括错误信息，代码等。  
 
 注意如何提问，清晰表达你的问题。
+
+## License
+
+ © [Ken Chen](http://www.thinkingincrowd.me)
+
+![](https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png)
+
+Attribution-NonCommercial-ShareAlike 
+CC BY-NC-SA

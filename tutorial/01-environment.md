@@ -114,15 +114,15 @@ http://3t.io/mongochef/#mongochef-download-compare
 
 打开的样子：
 
-![MongoChef](./01-environment-mongochef.png)
+![MongoChef](./images/01-environment-mongochef.png)
 
 点 Connect 那个大图标，会有一个连接管理窗口。
 
-![MongoChef](./01-environment-mongochef-manager.png)
+![MongoChef](./images/01-environment-mongochef-manager.png)
 
 点 New Connection，会看到下面的窗口。
 
-![MongoChef](./01-environment-new-connection.png)
+![MongoChef](./images/01-environment-new-connection.png)
 
 默认你什么都不用填，写个名字就可以了。点 Save 前点 Test Connection 测试一下是否成功。可以连接就可以了，暂时你不用理它。  
 

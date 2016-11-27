@@ -2,7 +2,7 @@
 
 同时这个 Git 也让参加 JavaScript 学习小组的人提问使用。  
 
-[Tasting JavaScript]:https://leanpub.com/tasting-javascript
+[Tasting JavaScript]: https://leanpub.com/tasting-javascript
 [Evergrow]: https://github.com/kenspirit/generator-evergrow
 
 本学习小组需要的资料和工具：  
@@ -23,6 +23,10 @@
 最开始填 tutorial 的文件名，空两格再标注 你的操作系统，最后是问题的概述。里面填写问题详细描述，包括错误信息，代码等。  
 
 注意如何提问，清晰表达你的问题。
+
+如果你觉得这个教程对你的学习有帮助，请告诉其它同样有兴趣学习的小伙伴。如果能打赏一瓶饮品或者快餐钱以资鼓励，更不胜感激。  
+
+![Sponsor](./sponsor.jpg)
 
 ## License
 

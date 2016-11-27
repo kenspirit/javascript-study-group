@@ -136,3 +136,17 @@ TLDR; 如果你想知道 Why，应该看前面的分析。如果你只是想寻�
 
   module.exports = mongoose.model('Image', ImageSchema)
 ```
+
+## 总结与练习
+
+[编程是什么？我要学吗？]: http://www.thinkingincrowd.me/2016/08/28/What-is-programming-should-I-learn/
+[Tasting JavaScript]: http://leanpub.com/tasting-javascript
+
+数据模型在编程领域可谓是最重要的部分了。正如以前我在「[编程是什么？我要学吗？][]」里面提到：**Algorithms + Data Structures = Programs**。我的「[Tasting JavaScript][]」第 4 章也摘录了首届图灵奖的获得者 Alan J. Perlis 说过的一句话：  
+
+>It is better to have 100 functions operate on one data structure than 10 functions on 10 data structures.  
+>    --  Alan J. Perlis
+
+可见，一个好的数据结构是多么重要。所以，我建议你根据上面提到的两大角度，**从归属和分区考虑**，**从功能，性能考虑**，时不时回顾你的数据模型，看是否合理和高效。  
+
+学习完这一章，你不妨想一想你打算实现的系统功能，它的数据模型应该要怎么样设计。可以提一个 Issue 来讨论一下。  

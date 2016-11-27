@@ -1,13 +1,17 @@
 var _ = require('lodash')
 var ImageModel = require('./image-model')
 var executeQuery = require('../../system/db-manager').executeQuery
+var getRandomIntInclusive = require('../../system/util').getRandomIntInclusive
+var STATUS_APPROVED = require('./image-constants').STATUS_APPROVED
 
 module.exports = {
   list: list,
   load: load,
   create: create,
   update: update,
-  remove: remove
+  remove: remove,
+  random: random,
+  approve: approve
 }
 
 function list(queryRequest) {
@@ -42,4 +46,28 @@ function remove(entityId, isPhysical) {
   } else {
     return ImageModel.remove({_id: entityId})
   }
+}
+
+function approve(imageId) {
+  return update({_id: imageId, status: STATUS_APPROVED})
+}
+
+function random(sex) {
+  var params = {
+    status: STATUS_APPROVED
+  }
+
+  if (sex) {
+    params.sex = sex
+  }
+
+  return list(params)
+    .then(function(matchedImages) {
+      if (matchedImages.totalCount === 0) {
+        return null
+      }
+
+      var imageToPick = getRandomIntInclusive(0, matchedImages.totalCount - 1)
+      return matchedImages.records[imageToPick]
+    })
 }

@@ -5,4 +5,4 @@
 
 | 代号 | 地点 | 微信或公众号 | 新生号 | 邮箱 | Github | 熟悉领域 | 了解领域 |
 | ---- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 高飞 | 南京 | flyvenus | xsid_8uw7qtvtlmx4r8 | gaofei20160520@gmail.com | gaofei1986 |  | 学习 python、ruby on rails 、vue.js和 semantic ui 中
+| 高飞 | 南京 | flyvenus | xsid_8uw7qtvtlmx4r8 | gaofei20160520 爱 gmail | gaofei1986 |  | 学习 python、django、ruby on rails 、vue.js和 semantic ui 中

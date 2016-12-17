@@ -10,6 +10,10 @@
 1. 我写的书 [Tasting JavaScript][]  
 2. 我写的系统搭建脚手架 [Evergrow][]  
 
+[百度云地址]: https://pan.baidu.com/s/1eR6QJxK
+
+_Notes: 如果在 Leanpub 无法下载，可到[百度云地址][]。_
+
 ##参与学习方式
 
 1. Fork 本项目  

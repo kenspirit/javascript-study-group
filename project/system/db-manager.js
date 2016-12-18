@@ -18,7 +18,7 @@ function initDB() {
 }
 
 function initSchema() {
-  return globPromise(path.resolve(__dirname, './module/**/*-model\.js'), {})
+  return globPromise(path.resolve(__dirname, '../module/**/*-model\.js'), {})
     .then(function(files) {
       files.forEach((file) => {
         var modelFile = path.relative(__dirname, file)
@@ -73,7 +73,9 @@ function executeQuery(model, queryRequest) {
 
 function getQueryCriteria(criteria) {
   return _.reduce(criteria, function(query, fieldValue, fieldName) {
-    if (!fieldValue || ['sort', 'direction', 'limit', 'page'].indexOf(fieldName) > -1) {
+    if (fieldValue === null || fieldValue === undefined ||
+        (typeof fieldValue === 'string' && fieldValue.length === 0) ||
+        ['sort', 'direction', 'limit', 'page'].indexOf(fieldName) > -1) {
       return query
     }
 

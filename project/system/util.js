@@ -7,8 +7,13 @@ function getRandomIntInclusive(min, max) {
 }
 
 function buildApiResponse(data, err) {
+  var errMessage = err || null
+  if (errMessage && typeof errMessage === 'object' && errMessage.message) {
+    errMessage = errMessage.message
+  }
+
   return {
-    err: err || null,
+    err: errMessage,
     data: typeof data === 'boolean' ? data : (data || null)
   }
 }

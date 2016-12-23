@@ -1,4 +1,5 @@
 var joi = require('joi')
+var IMAGE_CONSTANTS = require('./image-constants')
 var ImageController = require('./image-controller')
 
 module.exports.basePath = '/image'
@@ -44,7 +45,14 @@ module.exports.routes = [
     path: '/',
     summary: 'Creates Image',
     description: '',
-    action: ImageController.createImage
+    action: ImageController.createImage,
+    validators: {
+      body: joi.object().keys({
+        url: joi.string().required(),
+        createdUserId: joi.string().required(),
+        sex: joi.string()
+      })
+    }
   },
   {
     method: 'get',
@@ -58,7 +66,27 @@ module.exports.routes = [
     path: '/:id',
     summary: 'Updates Image profile',
     description: '',
-    action: ImageController.updateImage
+    action: ImageController.updateImage,
+    validators: {
+      body: joi.object().keys({
+        url: joi.string().required()
+      })
+    }
+  },
+  {
+    method: 'post',
+    path: '/:id/status',
+    summary: 'Updates Image Status',
+    description: '',
+    action: ImageController.updateImageStatus,
+    validators: {
+      body: joi.object().keys({
+        status: joi.string().required().allow(
+          IMAGE_CONSTANTS.STATUS_REJECTED,
+          IMAGE_CONSTANTS.STATUS_APPROVED
+        )
+      })
+    }
   },
   {
     method: 'delete',

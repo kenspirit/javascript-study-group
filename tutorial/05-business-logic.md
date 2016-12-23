@@ -76,7 +76,7 @@
 
 [Active Record][] 其实是一种架构模式，是 ORM 的一种特例。在 RDBMS 里，它把数据库的一个表映射到一个类上面。我们这里的情况是，`image-model.js` 里面引用的 `mongoose` 就是一个 ORM 框架，使用它可以把 MongoDB 里面的 collection 映射到一个 JavaScript 的对象里。`image-manager.js` 引用的 `ImageModel` 就是这样的一个对象。它默认带有 `create`, `update`, `remove` 等方法。我们通过操作这个对象，调用它的方法，修改它生成的新对象的属性，就可以修改数据库的值，添加或删除数据，进行数据库的操作。这种架构模式很方便，但是也有它的坏处。因为它把数据库的操作和单纯的数据对象绑定到一起，违反了单一责任的原则 (Single Responsibility Principle)，会导致不容易测试等问题。当你想单纯地创建一个数据对象的时候，你可能就要初始化依赖的数据库包。  
 
-我这里写的 `image-manager.js` 其实把 `mongoose` 包了一层。除了统一写法外，我不想把对 `mongoose` 的依赖，把数据库的操作暴露到 MVC 的 C (Controller) 层。如果我以后不用 `mongoose`, 用回 `mongodb-native` 库，甚至要换数据库，都可以尽量降低影响面。后面讲 MVC 的 C 层时，会进一步详述怎么和 M 这一层分离。  
+我这里写的 `image-manager.js` 其实把 `mongoose` 包了一层。除了统一写法外，我不想把对 `mongoose` 的依赖，把数据库的操作暴露到 MVC 的 C (Controller) 层。如果我以后不用 `mongoose`, 用回 `mongodb-native` 库，甚至要换数据库，都可以尽量降低影响面。后面讲 MVC 的 C 层时，会进一步说明怎么和 M 这一层分离。  
 
 
 ## 练习

@@ -102,6 +102,10 @@ Window Hotfix 安装：https://support.microsoft.com/en-us/kb/2731284
 
 >mkdir -p /data/db
 
+设置好权限
+
+>sudo chmod -R 755 /data/db
+
 **启动 MongoDB 数据库**
 
 >mongod

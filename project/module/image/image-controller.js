@@ -2,13 +2,16 @@ var ImageManager = require('./image-manager')
 var buildApiResponse = require('../../system/util').buildApiResponse
 var logger = require('../../system/log-manager')
 
-module.exports.listImagePage = listImagePage
-module.exports.loadImagePage = loadImagePage
-module.exports.listImage = listImage
-module.exports.loadImage = loadImage
-module.exports.createImage = createImage
-module.exports.updateImage = updateImage
-module.exports.removeImage = removeImage
+module.exports = {
+  listImagePage: listImagePage,
+  loadImagePage: loadImagePage,
+  listImage: listImage,
+  loadImage: loadImage,
+  createImage: createImage,
+  updateImage: updateImage,
+  removeImage: removeImage,
+  updateImageStatus: updateImageStatus
+}
 
 function listImagePage(req, res, next) {
   res.render('image/imageList')
@@ -23,7 +26,7 @@ function loadImagePage(req, res, next) {
 function listImage(req, res, next) {
   ImageManager.list(req.query)
     .then(function(entities) {
-      res.json(buildApiResponse(entities))
+      return res.json(buildApiResponse(entities))
     })
     .catch(next)
 }
@@ -31,7 +34,7 @@ function listImage(req, res, next) {
 function loadImage(req, res, next) {
   ImageManager.load(req.params.id)
     .then(function(entity) {
-      res.json(buildApiResponse(entity))
+      return res.json(buildApiResponse(entity))
     })
     .catch(next)
 }
@@ -41,7 +44,7 @@ function createImage(req, res, next) {
 
   ImageManager.create(requestEntity)
     .then(function(createdEntity) {
-      res.json(buildApiResponse(createdEntity))
+      return res.json(buildApiResponse(createdEntity))
     })
     .catch(next)
 }
@@ -52,7 +55,18 @@ function updateImage(req, res, next) {
 
   ImageManager.update(requestEntity)
     .then(function(updatedEntity) {
-      res.json(buildApiResponse(updatedEntity))
+      return res.json(buildApiResponse(updatedEntity))
+    })
+    .catch(next)
+}
+
+function updateImageStatus(req, res, next) {
+  var imageId = req.params.id
+  var status = req.body.status
+
+  ImageManager.updateStatus(imageId, status)
+    .then(function(updatedEntity) {
+      return res.json(buildApiResponse(updatedEntity))
     })
     .catch(next)
 }
@@ -60,7 +74,7 @@ function updateImage(req, res, next) {
 function removeImage(req, res, next) {
   ImageManager.remove(req.params.id)
     .then(function() {
-      res.json(buildApiResponse(true))
+      return res.json(buildApiResponse(true))
     })
     .catch(next)
 }

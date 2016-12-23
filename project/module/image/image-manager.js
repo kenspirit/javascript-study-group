@@ -11,7 +11,7 @@ module.exports = {
   update: update,
   remove: remove,
   random: random,
-  approve: approve
+  updateStatus: updateStatus
 }
 
 function list(queryRequest) {
@@ -48,8 +48,8 @@ function remove(entityId, isPhysical) {
   }
 }
 
-function approve(imageId) {
-  return update({_id: imageId, status: STATUS_APPROVED})
+function updateStatus(imageId, status) {
+  return update({_id: imageId, status: status})
 }
 
 function random(sex) {

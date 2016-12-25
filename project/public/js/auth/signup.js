@@ -25,13 +25,11 @@ var vue = new Vue({
         phone: this.phone,
         password: this.password,
         email: this.email
-      }, function (result) {
-        if (result.err) {
-          vue.errorMsg = result.err
-        } else {
-          location.href = '/'
-        }
       })
+      .done(function (result) {
+        location.href = '/'
+      })
+      .fail(handleErrorResponse.bind(this))
     }
   }
 })

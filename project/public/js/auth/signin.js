@@ -9,13 +9,11 @@ var vue = new Vue({
   },
   methods: {
     submit: function() {
-      $.post(signinUrl, { loginId: this.loginid, password: this.password }, function (result) {
-        if (result.err) {
-          vue.errorMsg = result.err;
-        } else {
+      $.post(signinUrl, { loginId: this.loginid, password: this.password })
+        .done(function (result) {
           location.href = result.data.homeUrl;
-        }
-      });
+        })
+        .fail(handleErrorResponse.bind(this))
     }
   }
 });

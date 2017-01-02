@@ -9,3 +9,4 @@
 | 择动   | 长春      | colo-zedong  | zedong          | lycczzd 也是 gmail  | zhang-zedong |
 | 胡军 | 北京 | morrxy | morrxy | morrxy 爱特 gmail | morrxy | Node.js | Bootstrap, jQ, Clojure |
 | 荷茗   | 上海      | 荷茗说(公众)      | shaheming       | shmsand(AT)gmail  | shaheming    |
+| 高飞 | 南京 | flyvenus | xsid_8uw7qtvtlmx4r8 | gaofei20160520 爱 gmail | gaofei1986 |  | 学习 python、django、ruby on rails 、vue.js和 semantic ui 中

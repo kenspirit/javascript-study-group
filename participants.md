@@ -10,3 +10,4 @@
 | 胡军 | 北京 | morrxy | morrxy | morrxy 爱特 gmail | morrxy | Node.js | Bootstrap, jQ, Clojure |
 | 荷茗   | 上海 | 荷茗说(公众) | shaheming | shmsand(AT)gmail  | shaheming | | |
 | 高飞 | 南京 | flyvenus | xsid_8uw7qtvtlmx4r8 | gaofei20160520 爱 gmail | gaofei1986 |  | 学习 python、django、ruby on rails 、vue.js和 semantic ui 中 |
+| 刘慧玲 | 苏州 | chamaine1203 | Chris1203 | liuhuiling1203 爱 gmail | chris1203 | 学习Rails和JS中|

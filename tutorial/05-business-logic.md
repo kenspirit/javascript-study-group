@@ -35,10 +35,10 @@
 ```javascript
   var getRandomIntInclusive = require('../../system/util').getRandomIntInclusive
 
-  function random(sex) {
+  function random(gender) {
     var params = {}
-    if (sex) {
-      params.sex = sex
+    if (gender) {
+      params.gender = gender
     }
 
     return list(params)
@@ -53,7 +53,7 @@
   }
 ```
 
-我们一起来看看这个方法。它只依赖一个可选的参数 `sex`，也就是代表用户的偏好。如果有指定，就按照指定的性别查找，没有的话就什么条件都不用了。这个方法复用了 `list` 这个批量读取的方法，然后 (then) 调用一个获取随机整数的函数，从上一步获取的所有匹配的图片中，抽取一张。  
+我们一起来看看这个方法。它只依赖一个可选的参数 `gender`，也就是代表用户的偏好。如果有指定，就按照指定的性别查找，没有的话就什么条件都不用了。这个方法复用了 `list` 这个批量读取的方法，然后 (then) 调用一个获取随机整数的函数，从上一步获取的所有匹配的图片中，抽取一张。  
 
 ## 延伸阅读
 

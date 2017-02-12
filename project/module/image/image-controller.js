@@ -1,5 +1,7 @@
 var ImageManager = require('./image-manager')
 var buildApiResponse = require('../../system/util').buildApiResponse
+var parseRequestParams = require('../../system/util').parseRequestParams
+var parseResultForTable = require('../../system/util').parseResultForTable
 var logger = require('../../system/log-manager')
 
 module.exports = {
@@ -24,9 +26,11 @@ function loadImagePage(req, res, next) {
 }
 
 function listImage(req, res, next) {
-  ImageManager.list(req.query)
+  req.query.sort = 'updatedAt'
+  var params = parseRequestParams(req)
+  ImageManager.list(params)
     .then(function(entities) {
-      return res.json(buildApiResponse(entities))
+      return res.json(parseResultForTable(entities))
     })
     .catch(next)
 }

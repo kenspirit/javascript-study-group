@@ -134,11 +134,11 @@ Controller 里面有两个比较特别的东西。这里只做基本的解释，
     action: ImageController.listImage,
     validators: {
       query: joi.object().keys({
-        sort: joi.string().valid('createdAt', 'updatedAt'),
-        direction: joi.string().valid('desc', 'asc').default('desc'),
+        search: joi.string().allow(''),
+        order: joi.string().valid('desc', 'asc').default('asc'),
         limit: joi.number().integer().max(100).default(10),
-        page: joi.number().integer()
-      }).with('sort', 'direction')
+        offset: joi.number().integer()
+      })
     }
   },
   {
@@ -207,7 +207,7 @@ Controller 里面使用的 `req.body` 所获取的数据，就是我们在 `Body
       body: joi.object().keys({
         url: joi.string().required(),
         createdUserId: joi.string().required(),
-        sex: joi.string()
+        gender: joi.string()
       })
     }
   }
@@ -231,7 +231,7 @@ Controller 里面使用的 `req.body` 所获取的数据，就是我们在 `Body
 
 ![List Image](./images/06-controller-routing-restful-list.png)
 
-大家可以看到，GET 请求的另一种传递参数方式是如何拼接到 URL 上面的。在 Controller 里面通过 `req.query` 就能获取到这些参数。大家可以通过在 Controller 里加上 `console.log(req.query)` 的方法来调试并打印数据出来看看。你们看到那些特殊的参数，是 evergrow 框架在批量读取数据时，支持的一些特定的系统参数。它们的作用是指示后台如何在数据量比较多的时候，分页返回记录。  
+大家可以看到，GET 请求的另一种传递参数方式是如何拼接到 URL 上面的。在 Controller 里面通过 `req.query` 就能获取到这些参数。大家可以通过在 Controller 里加上 `console.log(req.query)` 的方法来调试并打印数据出来看看。你们看到那些特殊的参数，是 evergrow 框架在批量读取数据时，支持的一些特定的系统参数。它们的作用是指示后台如何查找数据，或者在数据量比较多的时候，分页返回记录。  
 
 ## 练习
 

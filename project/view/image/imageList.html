@@ -1,0 +1,61 @@
+<div id="imageList">
+  <h2>Image List</h2>
+  <div class="col-sm-12" style="margin-bottom: 10px">
+    <div class="pull-left">
+      <button class="btn btn-primary" v-on:click="createImage">Create</button>
+    </div>
+  </div>
+  <div class="col-sm-12" id="image">
+    <table id="imageTable" :data-url="url"
+      data-page-size="10"
+      data-page-list="{{ pageList }}"
+      data-striped="true"
+      data-classes="table table-hover table-condensed"
+      data-show-columns="true"
+      data-search="true"
+      data-side-pagination="server"
+      data-pagination-v-align="both"
+      data-pagination="true"
+      data-show-toggle="true"
+      data-locale="en-US">
+    </table>
+  </div>
+  <div class="modal fade" id="imageDialog" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Image Profile</h4>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="imageId"/>
+          <input type="hidden" id="imageUrl"/>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender">
+              <option value="F">Female</option>
+              <option value="M">Male</option>
+            </select>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="deleted"> Deleted？
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" @click="saveImage()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%
+  block('moduleScript').append(
+    Loader('/public/build/imageList.min.js')
+      .js('/public/js/common/common.js')
+      .js('/public/js/image/imageList.js')
+      .done(assets, config.site_static_host)
+  )
+%>

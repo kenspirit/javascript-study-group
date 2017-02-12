@@ -1,0 +1,102 @@
+<ol class="breadcrumb">
+  <li><a href="/image/page/list">Image List</a></li>
+  <li class="active">Profile</li>
+</ol>
+<div id="imageProfile">
+  <input type="hidden" id="imageId" value="<%= typeof(id) !== 'undefined' ? id : '' %>"/>
+  <div class="alert alert-info" role="alert" v-if="successMsg">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{successMsg}}
+  </div>
+  <div class="alert alert-danger" role="alert" v-if="errorMsg">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{errorMsg}}
+  </div>
+
+  <div class="col-md-4 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        System Info
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="createdAt" class="col-sm-4 control-label">创建时间</label>
+            <div class="col-sm-8">
+              <span id="createdAt">{{ renderSystemTime(createdAt) }}</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="createdUser" class="col-sm-4 control-label">创建用户</label>
+            <div class="col-sm-8">
+              <span id="createdUser">{{createdUser}}</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="updatedAt" class="col-sm-4 control-label">更新时间</label>
+            <div class="col-sm-8">
+              <span id="updatedAt">{{ renderSystemTime(updatedAt) }}</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="updatedUser" class="col-sm-4 control-label">更新用户</label>
+            <div class="col-sm-8">
+              <span id="updatedUser">{{updatedUser}}</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="adduserthumbnail">
+        Image
+        <span class="pull-right btn btn-xs btn-success fileinput-button">
+          <i class="glyphicon glyphicon-plus"></i>
+          <span>Select...</span>
+          <input id="fileupload" type="file" name="files[]" data-url="/file/upload">
+        </span>
+      </div>
+      <div class="panel-body">
+        <a href="#" class="thumbnail" v-if="url">
+          <img v-bind:src="url">
+        </a>
+        <p v-else>N/A</p>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Profile
+      </div>
+      <div class="panel-body">
+        <form onsubmit="return false">
+          <fieldset>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select class="form-control" id="gender" name="gender" v-model="gender">
+                <option value="F">Female</option>
+                <option value="M">Male</option>
+              </select>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="deleted" v-model="deleted"> Deleted？
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="btn btn-danger" v-on:click="updateImage()">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%
+  block('moduleScript').append(
+    Loader('/public/build/imageProfile.min.js')
+      .js('/public/js/common/common.js')
+      .js('/public/js/image/imageProfile.js')
+      .done(assets, config.site_static_host)
+  )
+%>

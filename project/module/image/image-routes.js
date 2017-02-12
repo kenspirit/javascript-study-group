@@ -33,11 +33,11 @@ module.exports.routes = [
     action: ImageController.listImage,
     validators: {
       query: joi.object().keys({
-        sort: joi.string().valid('createdAt', 'updatedAt'),
-        direction: joi.string().valid('desc', 'asc').default('desc'),
+        search: joi.string().allow(''),
+        order: joi.string().valid('desc', 'asc').default('asc'),
         limit: joi.number().integer().max(100).default(10),
-        page: joi.number().integer()
-      }).with('sort', 'direction')
+        offset: joi.number().integer()
+      })
     }
   },
   {
@@ -69,7 +69,9 @@ module.exports.routes = [
     action: ImageController.updateImage,
     validators: {
       body: joi.object().keys({
-        url: joi.string().required()
+        url: joi.string().required(),
+        gender: joi.string(),
+        deleted: joi.boolean().default(false),
       })
     }
   },

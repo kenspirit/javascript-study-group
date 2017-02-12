@@ -1,4 +1,5 @@
 var fs = require('fs')
+var path = require('path')
 var Promise = require('bluebird')
 var config = require('../../system/config-manager').getConfig()
 
@@ -8,7 +9,7 @@ module.exports.uploadFile = uploadFile
 
 function uploadFile(fileName, file) {
   var filePath = config.base.upload.path + fileName
-  var writeStream = fs.createWriteStream(filePath)
+  var writeStream = fs.createWriteStream(path.resolve(process.cwd(), filePath))
   file.pipe(writeStream)
 
   return new Promise(function(resolve, reject) {

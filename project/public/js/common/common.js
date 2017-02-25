@@ -16,21 +16,3 @@ function handleErrorResponse(response) {
 function timeFormatter(value, row, index) {
   return moment(value).format('YYYY-MM-DD HH:mm:ss')
 }
-
-function ajaxRequest(params, cb) {
-  $.ajax({
-    type: params.method,
-    url: params.url,
-    dataType: 'json',
-    data: params.data
-  })
-  .done(function(result) {
-    if (result.err) {
-      alert(result.err)
-      return
-    }
-
-    cb(result)
-  })
-  .fail(handleErrorResponse.bind(this))
-}

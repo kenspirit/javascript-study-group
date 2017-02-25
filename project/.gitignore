@@ -4,3 +4,4 @@ config/**/development.js
 config/**/production.js
 config/**/test.js
 **/*.pem
+public/upload/*

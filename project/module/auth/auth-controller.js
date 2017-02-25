@@ -9,7 +9,6 @@ module.exports.signinPage = signinPage
 module.exports.signupPage = signupPage
 module.exports.resetPasswordRequestPage = resetPasswordRequestPage
 module.exports.resetPasswordPage = resetPasswordPage
-module.exports.adminPage = adminPage
 module.exports.signup = signup
 module.exports.signin = signin
 module.exports.signout = signout
@@ -18,8 +17,7 @@ module.exports.resetPassword = resetPassword
 module.exports.isPhoneUnique = isPhoneUnique
 module.exports.isEmailUnique = isEmailUnique
 module.exports.ensureAuthenticated = ensureAuthenticated
-module.exports.isAdmin = isAdmin
-
+module.exports.setUserToResources = setUserToResources
 
 function signinPage(req, res, next) {
   return res.render('auth/signin')
@@ -52,14 +50,15 @@ function resetPasswordPage(req, res, next) {
   .catch(next)
 }
 
-function adminPage(req, res, next) {
-  return res.render('indexAdmin');
+function setUserToResources(req, res, next) {
+  res.locals.currentUser = req.user
+  return next()
 }
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
 
-    res.locals.current_user = req.user
+    res.locals.currentUser = req.user
     return next()
   }
 
@@ -67,17 +66,6 @@ function ensureAuthenticated(req, res, next) {
     res.status(401).json(buildApiResponse(null, 'Unauthorized.'))
   } else {
     res.redirect('/auth/signin')
-  }
-}
-
-function isAdmin(req, res, next) {
-  if (req.user.isAdmin() || req.user.isSupport()) {
-    return next()
-  }
-  if (req.xhr) {
-    res.status(403).json(buildApiResponse(null, 'Forbidden.'))
-  } else {
-    res.redirect('/')
   }
 }
 
@@ -150,7 +138,7 @@ function isEmailUnique(req, res, next) {
 function signin(req, res, next) {
   setCookie(req, res)
   res.json(buildApiResponse({
-    homeUrl: req.user.isAdmin ? '/admin' : '/'
+    homeUrl: req.user.isAdmin ? '/user/page/list' : '/'
   }))
 }
 
@@ -173,8 +161,8 @@ function resetPasswordRequest(req, res, next) {
       }
 
       var resetId = uuid.v4()
-      var emailResetLink = config.base.domain + '/auth/resetPassword?resetId=' + resetId
-        + '&email=' + email
+      var emailResetLink = config.base.domain +
+        '/auth/resetPassword?resetId=' + resetId + '&email=' + email
 
       user.emailResetId = resetId
 

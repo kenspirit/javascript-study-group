@@ -35,6 +35,17 @@ _Notes: 如果在 Leanpub 无法下载，可到[百度云地址][]。_
 
 注意如何提问，清晰表达你的问题。
 
+## Node.js 微信后台搭建系列 - 章节
+
+* [环境准备](./01-environment.md)  
+* [Web App 骨架](./02-boilerplate.md)  
+* [JS 基础](./03-js-basic-data.md)  
+* [数据建模](./04-data-modeling.md)  
+* [业务逻辑层](./05-business-logic.md)  
+* [路由和控制器](./06-controller-routing.md)  
+* [视图](./07-view.md)  
+* [登录验证和授权](./08-access-control.md)  
+
 ##赞助
 
 如果你觉得这个教程对你的学习有帮助，请告诉其它同样有兴趣学习的小伙伴。如果能打赏一瓶饮品或者快餐钱以资鼓励，更不胜感激。  

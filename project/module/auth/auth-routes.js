@@ -31,11 +31,6 @@ module.exports.routes = [
     }
   },
   {
-    method: 'get',
-    path: '/admin',
-    action: [AuthController.ensureAuthenticated, AuthController.isAdmin, AuthController.adminPage]
-  },
-  {
     method: 'post',
     path: '/signin',
     summary: 'Sign In',

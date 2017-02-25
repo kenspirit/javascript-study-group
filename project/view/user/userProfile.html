@@ -1,11 +1,23 @@
+<ol class="breadcrumb">
+  <li><a href="/user/page/list">User List</a></li>
+  <li class="active">Profile</li>
+</ol>
 <div id="user-profile">
   <input type="hidden" id="user-id" value="<%= typeof(id) !== 'undefined' ? id : '' %>"/>
+  <div class="alert alert-info" role="alert" v-if="successMsg">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{successMsg}}
+  </div>
+  <div class="alert alert-danger" role="alert" v-if="errorMsg">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{errorMsg}}
+  </div>
 
   <div class="col-md-4 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading" role="adduserthumbnail">
         Image
-        <span class="pull-right btn btn-xs btn-success fileinput-button">
+        <span class="pull-right btn btn-xs btn-success fileinput-button" v-if="<%= isEditable %>">
           <i class="glyphicon glyphicon-plus"></i>
           <span>Select...</span>
           <input id="fileupload" type="file" name="files[]" data-url="/file/upload">
@@ -24,36 +36,34 @@
       <div class="panel-heading">
         Profile
       </div>
-      <div class="panel-body" v-if="<%= isEditable%>">
+      <div class="panel-body">
         <form id="profileSection">
           <fieldset>
             <div class="form-group">
               <label for="loginId">Login ID</label>
-              <input type="text" autofocus class="form-control required" id="loginId" name="loginId" v-model="loginId">
+              <input type="text" autofocus class="form-control required" id="loginId" name="loginId" v-model="loginId" <%= !isEditable ? 'disabled' : '' %>>
             </div>
 
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input type="text" class="form-control required" id="phone" name="phone" v-model="phone">
+              <input type="text" class="form-control required" id="phone" name="phone" v-model="phone" <%= !isEditable ? 'disabled' : '' %>>
             </div>
 
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="text" class="form-control" id="email" name="email" email v-model="email">
+              <input type="text" class="form-control" id="email" name="email" email v-model="email" <%= !isEditable ? 'disabled' : '' %>>
             </div>
           </fieldset>
 
-          <button class="btn btn-danger">Update</button>
+          <button class="btn btn-danger" v-if="<%= isEditable %>">Update</button>
         </form>
       </div>
-      <div class="panel-body" v-else>
-      </div>
     </div>
-    <div class="panel panel-default" v-if="<%= isEditable%>">
+    <div class="panel panel-default" v-if="<%= isEditable %>">
       <div class="panel-heading">
         Security
       </div>
-      <div class="panel-body" v-if="<%= isEditable%>">
+      <div class="panel-body" v-if="<%= isEditable %>">
         <form id="passwordSection">
           <div class='form-group'>
             <div class="input-group">
@@ -76,7 +86,7 @@
   block('moduleScript').append(
     Loader('/public/build/userProfile.min.js')
       .js('/public/js/common/file-uploader.js')
-      .js('/public/js/user/profile.js')
+      .js('/public/js/user/userProfile.js')
       .done(assets, config.site_static_host)
   )
 %>

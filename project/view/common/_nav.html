@@ -17,18 +17,21 @@
     <ul class="nav navbar-nav">
       <li><a href="/">Home</a></li>
     </ul>
-    <% if (typeof(current_user) !== 'undefined' && current_user && current_user.isAdmin) { %>
     <ul class="nav navbar-nav">
-      <li><a href="/admin">Management</a></li>
+      <li><a href="/image/page/list">Image List</a></li>
+    </ul>
+    <% if (typeof(currentUser) !== 'undefined' && currentUser && currentUser.isAdmin) { %>
+    <ul class="nav navbar-nav">
+      <li><a href="/user/page/list">User Management</a></li>
     </ul>
     <% } %>
-    <% if (typeof(current_user) !== 'undefined' && current_user) { %>
+    <% if (typeof(currentUser) !== 'undefined' && currentUser) { %>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= currentUser
           .loginId%> <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="/user/page/load/<%= current_user._id%>">User Profile</a></li>
+          <li><a href="/user/page/load/<%= currentUser._id%>">User Profile</a></li>
           <li><a data-method="post" rel="nofollow" v-on:click="signout">Signout</a></li>
         </ul>
       </li>

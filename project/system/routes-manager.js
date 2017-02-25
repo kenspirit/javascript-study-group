@@ -1,3 +1,4 @@
+var RouteRepository = require('./routes-repository')
 var buildApiResponse = require('./util').buildApiResponse
 var logger = require('./log-manager')
 var config = require('./config-manager').getConfig()
@@ -27,6 +28,13 @@ function configureRoutes(expressRouter, moduleRoutes) {
     })
 
     middlewares = middlewares.concat(route.action)
+
+    RouteRepository.setRoutes(moduleRoutes.basePath, {
+      baseUrl: moduleRoutes.basePath,
+      path: route.path,
+      desc: route.summary,
+      method: route.method
+    })
 
     expressRouter[route.method](route.path, middlewares)
   })
@@ -61,7 +69,8 @@ function validationMiddleware(route, req, res, next) {
 }
 
 function audit(req, res, next) {
-  logger.info({reqNoBody: req}, 'Auditing routing.')
+  var routeName = RouteRepository.getRouteDescription(req)
+  logger.info({reqNoBody: req}, `Auditing ${routeName}.`)
 
   next()
 }

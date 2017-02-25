@@ -1,23 +1,23 @@
 var UserManager = require('./user-manager')
 var buildApiResponse = require('../../system/util').buildApiResponse
+var parseRequestParams = require('../../system/util').parseRequestParams
+var parseResultForTable = require('../../system/util').parseResultForTable
 var logger = require('../../system/log-manager')
 
 module.exports.listUserPage = listUserPage
 module.exports.loadUserPage = loadUserPage
 module.exports.isOwner = isOwner
+module.exports.isAdmin = isAdmin
 module.exports.listUser = listUser
 module.exports.loadUser = loadUser
 module.exports.updateUser = updateUser
 
 function listUserPage(req, res, next) {
-  res.render('user/list', {
-    id: req.params.id,
-    isEditable: req.user._id.toString() == req.params.id
-  })
+  res.render('user/userList')
 }
 
 function loadUserPage(req, res, next) {
-  res.render('user/profile', {
+  res.render('user/userProfile', {
     id: req.params.id,
     isEditable: req.user._id.toString() == req.params.id
   })
@@ -32,10 +32,21 @@ function isOwner(req, res, next) {
   next()
 }
 
+function isAdmin(req, res, next) {
+  if (!req.user.isAdmin) {
+    res.status(403).json(buildApiResponse(null, 'Forbidden.'))
+    return
+  }
+
+  next()
+}
+
 function listUser(req, res, next) {
-  UserManager.list(req.query)
+  req.query.sort = 'createdAt'
+  var params = parseRequestParams(req)
+  UserManager.list(params)
     .then(function(users) {
-      res.json(buildApiResponse(users))
+      res.json(parseResultForTable(users))
     })
     .catch(next)
 }

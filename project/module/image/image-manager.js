@@ -9,7 +9,7 @@ module.exports = {
   load: load,
   create: create,
   update: update,
-  remove: remove,
+  setDeleteStatus: setDeleteStatus,
   random: random,
   updateStatus: updateStatus
 }
@@ -26,12 +26,18 @@ function create(entity) {
   return ImageModel.create(entity)
 }
 
-function update(entity) {
+function update(user, entity) {
   return load(entity._id)
     .then(function(dbEntity) {
       if (!dbEntity) {
         return false
       }
+
+      if (user._id.toString() !== dbEntity.createdUserId || 
+          !user.isAdmin) {
+        throw new Error('无权修改')
+      }
+
       delete entity._id
 
       _.assign(dbEntity, entity)
@@ -40,25 +46,22 @@ function update(entity) {
     })
 }
 
-function remove(entityId, isPhysical) {
-  if (!isPhysical) {
-    return ImageModel.update({_id: entityId}, {deleted: true}).exec()
-  } else {
-    return ImageModel.remove({_id: entityId})
-  }
+function setDeleteStatus(entityId, userId, deleteStatus) {
+  return ImageModel.update({_id: entityId, createdUserId: userId},
+    {deleted: deleteStatus}).exec()
 }
 
-function updateStatus(imageId, status) {
-  return update({_id: imageId, status: status})
+function updateStatus(user, imageId, status) {
+  return update(user, {_id: imageId, status: status})
 }
 
-function random(sex) {
+function random(gender) {
   var params = {
     status: STATUS_APPROVED
   }
 
-  if (sex) {
-    params.sex = sex
+  if (gender) {
+    params.gender = gender
   }
 
   return list(params)

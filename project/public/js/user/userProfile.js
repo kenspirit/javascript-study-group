@@ -89,14 +89,6 @@ if (userId) {
   vue.getUser()
 }
 
-function saveValue(url) {
-  if (url) {
-    vue.imageUrl = url
-  } else {
-    alert('No Image.')
-  }
-}
-
 $(function () {
   $('#fileupload').fileupload({
     dataType: 'json',

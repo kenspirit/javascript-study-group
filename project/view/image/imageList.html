@@ -1,9 +1,15 @@
 <div id="imageList">
   <h2>Image List</h2>
   <div class="col-sm-12" style="margin-bottom: 10px">
-    <div class="pull-left">
-      <button class="btn btn-primary" v-on:click="createImage">Create</button>
+    <div class="alert alert-danger" role="alert" v-if="errorMsg">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      {{errorMsg}}
     </div>
+    <% if (typeof(currentUser) !== 'undefined' && currentUser) { %>
+      <div class="pull-left">
+        <button class="btn btn-primary" v-on:click="createImage">Create</button>
+      </div>
+    <% } %>
   </div>
   <div class="col-sm-12" id="image">
     <table id="imageTable" :data-url="url"
@@ -51,6 +57,17 @@
     </div>
   </div>
 </div>
+<script>
+var isLogin = false
+var isAdmin = false
+var userId = null
+
+<% if (typeof(currentUser) !== 'undefined' && currentUser) { %>
+  isLogin = true
+  userId = '<%= currentUser._id %>'
+  isAdmin = <%= currentUser.isAdmin %>
+<% } %>
+</script>
 <%
   block('moduleScript').append(
     Loader('/public/build/imageList.min.js')

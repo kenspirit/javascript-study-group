@@ -1,4 +1,4 @@
-## 设置基本 Web Application 骨架
+# Node.js 微信后台搭建系列 - Web App 骨架
 
 详情参考 https://github.com/kenspirit/generator-evergrow
 

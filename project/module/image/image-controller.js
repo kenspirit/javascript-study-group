@@ -1,3 +1,4 @@
+var IMAGE_CONSTANTS = require('./image-constants')
 var ImageManager = require('./image-manager')
 var buildApiResponse = require('../../system/util').buildApiResponse
 var parseRequestParams = require('../../system/util').parseRequestParams
@@ -11,7 +12,7 @@ module.exports = {
   loadImage: loadImage,
   createImage: createImage,
   updateImage: updateImage,
-  removeImage: removeImage,
+  setDeleteStatus: setDeleteStatus,
   updateImageStatus: updateImageStatus
 }
 
@@ -27,7 +28,28 @@ function loadImagePage(req, res, next) {
 
 function listImage(req, res, next) {
   req.query.sort = 'updatedAt'
+
   var params = parseRequestParams(req)
+  var user = req.user
+
+  if (!user) {
+    // 没登录
+    params.deleted = false
+    params.status = IMAGE_CONSTANTS.STATUS_APPROVED
+  } else if (!user.isAdmin) {
+    // 登录，普通用户
+    var userId = user._id.toString()
+
+    params.$or = [{
+        createdUserId: userId
+      }, {
+        createdUserId: {$ne: userId},
+        deleted: false,
+        status: IMAGE_CONSTANTS.STATUS_APPROVED
+      }]
+  }
+  // 管理员什么特殊处理也不需要
+
   ImageManager.list(params)
     .then(function(entities) {
       return res.json(parseResultForTable(entities))
@@ -57,7 +79,7 @@ function updateImage(req, res, next) {
   var requestEntity = req.body
   requestEntity._id = req.params.id
 
-  ImageManager.update(requestEntity)
+  ImageManager.update(req.user, requestEntity)
     .then(function(updatedEntity) {
       return res.json(buildApiResponse(updatedEntity))
     })
@@ -68,15 +90,15 @@ function updateImageStatus(req, res, next) {
   var imageId = req.params.id
   var status = req.body.status
 
-  ImageManager.updateStatus(imageId, status)
+  ImageManager.updateStatus(req.user, imageId, status)
     .then(function(updatedEntity) {
       return res.json(buildApiResponse(updatedEntity))
     })
     .catch(next)
 }
 
-function removeImage(req, res, next) {
-  ImageManager.remove(req.params.id)
+function setDeleteStatus(req, res, next) {
+  ImageManager.setDeleteStatus(req.params.id, req.user._id, req.body.status)
     .then(function() {
       return res.json(buildApiResponse(true))
     })

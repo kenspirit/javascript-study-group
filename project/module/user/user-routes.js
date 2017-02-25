@@ -14,23 +14,23 @@ module.exports.routes = [
   {
     method: 'get',
     path: '/page/list',
-    summary: 'Load user profile page',
+    summary: 'List user page',
     description: '',
-    action: [AuthController.ensureAuthenticated, UserController.listUserPage]
+    action: [AuthController.ensureAuthenticated, UserController.isAdmin, UserController.listUserPage]
   },
   {
     method: 'get',
     path: '/',
     summary: 'Gets all users',
     description: '',
-    action: [AuthController.ensureAuthenticated, UserController.listUser],
+    action: [AuthController.ensureAuthenticated, UserController.isAdmin, UserController.listUser],
     validators: {
       query: joi.object().keys({
-        sort: joi.string().valid('createdAt', 'updatedAt'),
-        direction: joi.string().valid('desc', 'asc').default('desc'),
+        search: joi.string().allow(''),
+        order: joi.string().valid('desc', 'asc').default('asc'),
         limit: joi.number().integer().max(100).default(10),
-        page: joi.number().integer()
-      }).with('sort', 'direction')
+        offset: joi.number().integer()
+      })
     }
   },
   {
@@ -51,6 +51,7 @@ module.exports.routes = [
         loginId: joi.string().required(),
         phone: joi.string().required(),
         email: joi.string().email(),
+        imageUrl: joi.string(),
         password: joi.string(),
         confirmPassword: joi.string()
       })

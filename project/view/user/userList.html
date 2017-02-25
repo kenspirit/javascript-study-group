@@ -1,0 +1,26 @@
+<div id="userList">
+  <h2>User List</h2>
+  <div class="col-sm-12" id="user">
+    <table id="userTable" :data-url="url"
+      data-page-size="10"
+      data-page-list="{{ pageList }}"
+      data-striped="true"
+      data-classes="table table-hover table-condensed"
+      data-show-columns="true"
+      data-search="true"
+      data-side-pagination="server"
+      data-pagination-v-align="both"
+      data-pagination="true"
+      data-show-toggle="true"
+      data-locale="en-US">
+    </table>
+  </div>
+</div>
+<%
+  block('moduleScript').append(
+    Loader('/public/build/userList.min.js')
+      .js('/public/js/common/common.js')
+      .js('/public/js/user/userList.js')
+      .done(assets, config.site_static_host)
+  )
+%>

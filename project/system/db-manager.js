@@ -79,7 +79,7 @@ function getQueryCriteria(criteria) {
       return query
     }
 
-    if (_.isArray(fieldValue)) {
+    if (_.isArray(fieldValue) && fieldName !== '$or') {
       query[fieldName] = {$in: fieldValue}
     } else {
       query[fieldName] = fieldValue

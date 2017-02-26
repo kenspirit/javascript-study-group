@@ -77,9 +77,8 @@ Node.js 可以安装 6.3.1 的版本。不安装最新的 LTS 版本是因为它
 
 **测试连接 MongoDB**
 
-安装并使用 MongoChef  
+安装并使用 [MongoChef](./01-environment-mongochef.md)  
 
-[MongoChef](./01-environment-mongochef.md)
 
 ## Redis
 

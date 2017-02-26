@@ -40,9 +40,8 @@ Window Hotfix 安装：https://support.microsoft.com/en-us/kb/2731284
 
 **测试连接 MongoDB**
 
-安装并使用 MongoChef  
+安装并使用 [MongoChef](./01-environment-mongochef.md)  
 
-[MongoChef](./01-environment-mongochef.md)
 
 ## Redis
 

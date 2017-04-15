@@ -45,6 +45,7 @@ _Notes: 如果在 Leanpub 无法下载，可到[百度云地址][]。_
 * [路由和控制器](./tutorial/06-controller-routing.md)  
 * [视图](./tutorial/07-view.md)  
 * [登录验证和授权](./tutorial/08-access-control.md)  
+* [服务器环境配置](./tutorial/09-server-setup.md)  
 
 ##赞助
 

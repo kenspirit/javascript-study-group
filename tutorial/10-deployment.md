@@ -126,7 +126,7 @@ SSH 登录服务器，通过 `mkdir` 命令建立代码目录，比如：`mkdir 
 
 ![Security Group Port](./images/10-deploy-security-group-port.png)
 
-大功告成。现在在浏览器输入你主机的公网 IP 和端口（3000 或者 80），看看你的服务器是不是就能访问了？为什么 80 端口也可以？我们的 Node.js 服务明明是 3000 的啊。前面安装的 Nginx 帮你搞定了一切。  
+大功告成。现在在浏览器输入你主机的公网 IP 和端口（3000 或者 80），看看你的服务器是不是就能访问了？为什么 80 端口也可以，我们的 Node.js 服务明明是 3000 的啊？前面安装的 Nginx 帮你搞定了一切。  
 
 ![Security Group Done](./images/10-deploy-security-group-done.png)
 

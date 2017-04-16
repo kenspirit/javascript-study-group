@@ -46,8 +46,9 @@ _Notes: 如果在 Leanpub 无法下载，可到[百度云地址][]。_
 * [视图](./tutorial/07-view.md)  
 * [登录验证和授权](./tutorial/08-access-control.md)  
 * [服务器环境配置](./tutorial/09-server-setup.md)  
+* [服务器代码部署](./tutorial/10-deployment.md)  
 
-##赞助
+## 赞助
 
 如果你觉得这个教程对你的学习有帮助，请告诉其它同样有兴趣学习的小伙伴。如果能打赏一瓶饮品或者快餐钱以资鼓励，更不胜感激。  
 

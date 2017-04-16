@@ -70,7 +70,7 @@ CSS 能更丰富和精确地定位和布局页面。非纯前端不用了解太�
       Loader('/public/build/imageList.min.js')
         .js('/public/js/common/common.js')
         .js('/public/js/image/imageList.js')
-        .done(assets, config.site_static_host)
+        .done(assets, config.base.staticAsset.host, config.base.staticAsset.combo)
     )
   %>
 ```  

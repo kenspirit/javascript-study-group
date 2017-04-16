@@ -61,7 +61,8 @@ function configureApp(app) {
   app.engine('html', require('ejs-mate'))
 
   var assets = {}
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' &&
+      config.base.staticAsset.combo !== false) {
     try {
       assets = require('../assets.json')
     } catch (e) {

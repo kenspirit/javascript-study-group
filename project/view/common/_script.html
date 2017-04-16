@@ -11,6 +11,6 @@
       .js('/public/js/lib/bootstrap/js/bootstrap.js')
       .js('/public/js/lib/bootstrap-table/bootstrap-table.js')
       .js('/public/js/lib/moment.min.js')
-      .done(assets, config.site_static_host)
+      .done(assets, config.base.staticAsset.host, config.base.staticAsset.combo)
   )
 %>

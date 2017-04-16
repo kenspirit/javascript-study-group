@@ -87,6 +87,6 @@
     Loader('/public/build/userProfile.min.js')
       .js('/public/js/common/file-uploader.js')
       .js('/public/js/user/userProfile.js')
-      .done(assets, config.site_static_host)
+      .done(assets, config.base.staticAsset.host, config.base.staticAsset.combo)
   )
 %>

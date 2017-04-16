@@ -14,7 +14,10 @@ module.exports = {
     level: 'debug',
     enableReqAudit: true
   },
-  site_static_host: '',
+  staticAsset: {
+    host: '',
+    combo: false // true/false/undefined.  Based on NODE_ENV if set to undefined.
+  },
   upload: {
     path: './upload/'
   },

@@ -97,6 +97,6 @@
     Loader('/public/build/imageProfile.min.js')
       .js('/public/js/common/common.js')
       .js('/public/js/image/imageProfile.js')
-      .done(assets, config.site_static_host)
+      .done(assets, config.base.staticAsset.host, config.base.staticAsset.combo)
   )
 %>

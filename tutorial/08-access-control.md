@@ -249,7 +249,7 @@
       Loader('/public/build/imageList.min.js')
         .js('/public/js/common/common.js')
         .js('/public/js/image/imageList.js')
-        .done(assets, config.site_static_host)
+        .done(assets, config.base.staticAsset.host, config.base.staticAsset.combo)
     )
   %>
 ```

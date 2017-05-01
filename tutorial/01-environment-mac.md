@@ -50,7 +50,7 @@ Node.js 可以安装 6.3.1 的版本。不安装最新的 LTS 版本是因为它
 
   >cd mongodb/bin
 
-  >mongod
+  >./mongod
 
 敲完上面的命令，你应该能看到如下 MongoDB 启动成功的画面：
 

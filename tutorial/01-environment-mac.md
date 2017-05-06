@@ -57,7 +57,7 @@ Node.js 可以安装 6.3.1 的版本。不安装最新的 LTS 版本是因为它
 ![MongoDB](http://thinkingincrowd.u.qiniudn.com/01-environment-mac-mongodb.png)
 
 
-**高级用法（非必需但方便）**
+**高级用法（Homebrew 安装方式不需要）**
 
 * 把可执行命令放到你的个人配置，根据你自己的编辑器，选择下面合适的命令：  
 
@@ -67,6 +67,7 @@ Node.js 可以安装 6.3.1 的版本。不安装最新的 LTS 版本是因为它
 
   Sublime:  
 
+  >ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
   >subl ~/.bashrc
 
   把下面这行加到最下面，然后保存推出：  

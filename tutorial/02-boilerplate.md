@@ -14,7 +14,7 @@
 
 * 安装脚手架 evergrow：  
 
-  >npm install -g yo
+  >npm install -g generator-evergrow
 
 **搭建项目**
 

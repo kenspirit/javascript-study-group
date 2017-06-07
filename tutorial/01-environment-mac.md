@@ -67,10 +67,10 @@ Node.js 可以安装 6.3.1 的版本。不安装最新的 LTS 版本是因为它
 
   Sublime:  
 
-  >ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+  >ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl  
   >subl ~/.bashrc
 
-  把下面这行加到最下面，然后保存推出：  
+  把下面这行加到最下面，然后保存退出：  
 
   >export PATH=<mongodb-install-directory\>/bin:$PATH
 
@@ -107,13 +107,13 @@ Node.js 可以安装 6.3.1 的版本。不安装最新的 LTS 版本是因为它
 
   >cd redis
 
-  >make
+  >make install
 
 **启动 Redis 数据库**
 
-* 在 Redis 的安装目录输入下面的命令
+* 输入下面的命令
 
-  >src/redis-server
+  >redis-server
 
 敲完上面的命令，你应该能看到如下 Redis 启动成功的画面：
 

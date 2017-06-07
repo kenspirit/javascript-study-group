@@ -172,7 +172,7 @@ Controller 里面有两个比较特别的东西。这里只做基本的解释，
 
 ### REST API 服务的测试
 
-[Postman]: https://www.getpostman.com/　
+[Postman]: https://www.getpostman.com/  
 
 到这里，其实我们可以测试一下那些能操作图片数据的服务了。没有页面测不了？作为后端开发者，肯定不能说要依赖页面才能测试自己写好的 REST API。下面我们来看看怎么使用 [Postman][] 来做测试。  
 

@@ -32,7 +32,12 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path-match": "^1.2.4",
-    "request-id": "^0.11.0"
+    "request-id": "^0.11.0",
+    "passport-wechat": "^2.0.3",
+    "request": "^2.75.0",
+    "through2": "^2.0.1",
+    "wechat": "^2.0.3",
+    "wechat-api": "^1.28.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",

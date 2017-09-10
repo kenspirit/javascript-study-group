@@ -2,7 +2,7 @@
 
 详细教程请看 [tutorial](./tutorial) 文件夹。模板样例请看 [project](./project) 文件夹。  
 
-##资料和工具
+## 资料和工具
 
 [Tasting JavaScript]: https://leanpub.com/tasting-javascript
 [Evergrow]: https://github.com/kenspirit/generator-evergrow
@@ -14,14 +14,14 @@
 
 _Notes: 如果在 Leanpub 无法下载，可到[百度云地址][]。_
 
-##参与学习方式
+## 参与学习方式
 
 1. Fork 本项目  
 2. 填写 `participants.md`，提 Pull Request  
 3. 成员自学项目教程，并通过 Pull Request 提问  
 4. 每周一篇 500 字以上学习总结（不含代码）。填写 `retrospect_articles.md`，发 Pull Request  
 
-##提问的方式
+## 提问的方式
 
 点击 Issues 标签：
 
@@ -47,6 +47,7 @@ _Notes: 如果在 Leanpub 无法下载，可到[百度云地址][]。_
 * [登录验证和授权](./tutorial/08-access-control.md)  
 * [服务器环境配置](./tutorial/09-server-setup.md)  
 * [服务器代码部署](./tutorial/10-deployment.md)  
+* [微信集成](./tutorial/11-wechat-integration.md)  
 
 ## 赞助
 
